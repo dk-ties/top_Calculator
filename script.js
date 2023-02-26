@@ -3,6 +3,7 @@
 let currentNum = 0;
 let newNumber = 5;
 let currentOperator = "";
+let operatorCall = "";
 
 //Setting up btnNumber and listen event
 let btnNumberClicked = document.querySelectorAll(".btnNumber");
@@ -16,7 +17,8 @@ btnNumberClicked.forEach((element) =>
 let btnOperatorClicked = document.querySelectorAll(".btnOperator");
 btnOperatorClicked.forEach((element) =>
   element.addEventListener("click", (event) => {
-    console.log(event.target.innerHTML);
+    operatorCall = event.target.value;
+    btnOperatorClick();
   })
 );
 
@@ -27,23 +29,37 @@ function displayUpdate(numberClick) {
   document.getElementById("inputDisplay").value = displayNew;
 }
 
+//Function on btnOperator click
+function btnOperatorClick() {
+  //newNumber = document.getElementById("inputDisplay").value;
+  operator(operatorCall);
+  if (operatorCall !== "result") {
+    document.getElementById("inputDisplay").value = "";
+  } else document.getElementById("inputDisplay").value = currentNum;
+}
+
 //main operator
 function operator(exspression) {
   switch (exspression) {
-    case operatorAdd:
-      currentNum = operatorAdd();
+    case "operatorAdd":
+      newNumber = Number(document.getElementById("inputDisplay").value);
+      currentNum = Number(operatorAdd());
       return currentNum;
 
-    case operatorSubtract:
+    case "operatorSubtract":
       currentNum = operatorSubtract();
       return currentNum;
 
-    case operatorMultiply:
+    case "operatorMultiply":
       currentNum = operatorMultiply();
       return currentNum;
 
-    case operatorDivide:
+    case "operatorDivide":
       currentNum = operatorDivide();
+      return currentNum;
+
+    case "result":
+      document.getElementById("inputDisplay").value = currentNum;
       return currentNum;
   }
 }
@@ -52,6 +68,7 @@ function operator(exspression) {
 function operatorAdd() {
   currentNum = currentNum + newNumber;
   newNumber = 0;
+  parseInt(currentNum);
   return currentNum;
 }
 //Function for subtract
