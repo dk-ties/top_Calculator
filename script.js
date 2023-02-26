@@ -2,7 +2,26 @@
 let currentNum = 0;
 let newNumber = 5;
 
-//currentNum = operatorAdd(currentNum, newNumber);
+//main operator
+function operator(exspression) {
+  switch (exspression) {
+    case operatorAdd:
+      currentNum = operatorAdd();
+      return currentNum;
+
+    case operatorSubtract:
+      currentNum = operatorSubtract();
+      return currentNum;
+
+    case operatorMultiply:
+      currentNum = operatorMultiply();
+      return currentNum;
+
+    case operatorDivide:
+      currentNum = operatorDivide();
+      return currentNum;
+  }
+}
 
 //Function for add
 function operatorAdd() {
