@@ -5,26 +5,28 @@ let newNumber = 5;
 //currentNum = operatorAdd(currentNum, newNumber);
 
 //Function for add
-function operatorAdd(currentNum, newNumber) {
+function operatorAdd() {
   currentNum = currentNum + newNumber;
   newNumber = 0;
   return currentNum;
 }
 //Function for subtract
-function operatorSubtract(currentNum, newNumber) {
+function operatorSubtract() {
   currentNum = currentNum - newNumber;
   newNumber = 0;
   return currentNum;
 }
 //Function for multiply
-function operatorMultiply(currentNum, newNumber) {
+function operatorMultiply() {
   currentNum = currentNum * newNumber;
   newNumber = 0;
   return currentNum;
 }
 //Function for divide
-function operatorDivide(currentNum, newNumber) {
+function operatorDivide() {
   if (currentNum <= 0 || newNumber <= 0) {
+    console.log(newNumber);
+    console.log(currentNum);
     return alert("You cannot divide with 0");
   }
   currentNum = currentNum / newNumber;
