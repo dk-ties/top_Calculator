@@ -13,6 +13,7 @@ body {
   flex-flow: row wrap;
   height: 100vh;
   align-content: space-between;
+  justify-content: center;
 }
 body > * {
   flex: 1 100%;
@@ -24,7 +25,33 @@ body > * {
 /* Setting up Calculator main layout */
 .content {
   display: flex;
+  flex-flow: column;
+  max-width: 20vw;
 }
+/*Setting up display style */
+#inputScreen {
+  min-height: 50px;
+}
+/*Setting up btn*/
+.btn {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
+}
+
+.btn > * {
+  height: 50px;
+}
+/*Setting up grid style*/
+#btnClear {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#btnDel {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
 /* Setting up Footer*/
 .footer {
   max-height: 10vh;
