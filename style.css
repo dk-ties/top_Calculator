@@ -1,9 +1,32 @@
-/* Resetting alle browser style */
+/* Resetting alle browser style 
 
-/* Revert CSS style of target element and its children (on body tag)*/
+/* Revert CSS style of target element and its children (on body tag)
 .reset-style,
 .reset-style * {
   all: revert;
-}
+} */
 
 /* Start of Styleing */
+/* style body */
+body {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100vh;
+  align-content: space-between;
+}
+body > * {
+  flex: 1 100%;
+}
+/* Setting up Header*/
+.header {
+  max-height: 10vh;
+}
+/* Setting up Calculator main layout */
+.content {
+  display: flex;
+}
+/* Setting up Footer*/
+.footer {
+  max-height: 10vh;
+  margin-bottom: 50px;
+}

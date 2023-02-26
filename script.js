@@ -1,6 +1,8 @@
 //Start of Calculation script.
+//declaration and reset of the two chosen numbers and the current opreator
 let currentNum = 0;
 let newNumber = 5;
+let currentOperator = "";
 
 //main operator
 function operator(exspression) {
@@ -22,7 +24,7 @@ function operator(exspression) {
       return currentNum;
   }
 }
-
+//Functions for the chosen operators
 //Function for add
 function operatorAdd() {
   currentNum = currentNum + newNumber;
