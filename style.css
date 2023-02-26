@@ -1,0 +1,9 @@
+/* Resetting alle browser style */
+
+/* Revert CSS style of target element and its children (on body tag)*/
+.reset-style,
+.reset-style * {
+  all: revert;
+}
+
+/* Start of Styleing */
