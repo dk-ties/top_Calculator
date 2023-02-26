@@ -4,6 +4,29 @@ let currentNum = 0;
 let newNumber = 5;
 let currentOperator = "";
 
+//Setting up btnNumber and listen event
+let btnNumberClicked = document.querySelectorAll(".btnNumber");
+btnNumberClicked.forEach((element) =>
+  element.addEventListener("click", (event) => {
+    let numberClick = event.target.innerHTML;
+    displayUpdate(numberClick);
+  })
+);
+//Setting up btnOperator and listen event
+let btnOperatorClicked = document.querySelectorAll(".btnOperator");
+btnOperatorClicked.forEach((element) =>
+  element.addEventListener("click", (event) => {
+    console.log(event.target.innerHTML);
+  })
+);
+
+//Function to send btnNumber click to display
+function displayUpdate(numberClick) {
+  let displayOld = document.getElementById("inputDisplay").value;
+  let displayNew = displayOld + numberClick;
+  document.getElementById("inputDisplay").value = displayNew;
+}
+
 //main operator
 function operator(exspression) {
   switch (exspression) {
