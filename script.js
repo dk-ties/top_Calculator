@@ -7,6 +7,7 @@ let numB = 0;
 let currentOperator = "";
 let isDisplayCurrentNum = false;
 let isDivideWithZero = false;
+let isPunkt = false;
 
 //Setting up btnNumber and listenevent
 let btnNumberClicked = document.querySelectorAll(".btnNumber");
@@ -25,6 +26,7 @@ btnNumberClicked.forEach((element) =>
     }
   })
 );
+//Setting up btnOperator and listenevent
 let btnOperatorClicked = document.querySelectorAll(".btnOperator");
 btnOperatorClicked.forEach((element) =>
   element.addEventListener("click", (event) => {
@@ -37,6 +39,7 @@ btnOperatorClicked.forEach((element) =>
       btnResultClick();
     }
     currentOperator = event.target.value;
+    isPunkt = false;
   })
 );
 //Setting up btnResult and listen event
@@ -59,25 +62,24 @@ btnClear.forEach((element) =>
     currentNum = "";
     isDisplayCurrentNum = false;
     isDivideWithZero = false;
+    isPunkt = false;
   })
 );
 
 //Function to send btnNumber click to display
 function displayUpdate(numberClick) {
+  if (isPunkt == true) {
+    if (numberClick == ".") {
+      numberClick = "";
+    }
+  } else {
+    if (numberClick == ".") {
+      isPunkt = true;
+    }
+  }
   let displayOld = document.getElementById("inputDisplay").value;
   let displayNew = displayOld + numberClick;
   document.getElementById("inputDisplay").value = displayNew;
-}
-
-//Function on btnOperator click
-function btnOperatorClick() {
-  if (numA <= 0) {
-    numA = Number(document.getElementById("inputDisplay").value);
-    document.getElementById("inputDisplay").value = "";
-  } else {
-    numB = Number(document.getElementById("inputDisplay").value);
-    btnResultClick();
-  }
 }
 
 //Function on btnResult click
@@ -94,6 +96,7 @@ function btnResultClick() {
     document.getElementById("inputDisplay").value = currentNum;
     isDisplayCurrentNum = true;
   }
+  isPunkt = false;
 }
 
 //main operator
