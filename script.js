@@ -5,7 +5,6 @@ let newNumber = 0;
 let numA = 0;
 let numB = 0;
 let currentOperator = "";
-let operatorCall = "";
 let isDisplayCurrentNum = false;
 let isDivideWithZero = false;
 
@@ -26,12 +25,18 @@ btnNumberClicked.forEach((element) =>
     }
   })
 );
-//Setting up btnOperator and listen event
 let btnOperatorClicked = document.querySelectorAll(".btnOperator");
 btnOperatorClicked.forEach((element) =>
   element.addEventListener("click", (event) => {
+    if (numA == "") {
+      numA = Number(document.getElementById("inputDisplay").value);
+      currentOperator = event.target.value;
+      document.getElementById("inputDisplay").value = "";
+    } else if (numB == "") {
+      numB = Number(document.getElementById("inputDisplay").value);
+      btnResultClick();
+    }
     currentOperator = event.target.value;
-    btnOperatorClick();
   })
 );
 //Setting up btnResult and listen event
@@ -51,6 +56,7 @@ btnClear.forEach((element) =>
     numA = "";
     numB = "";
     currentOperator = "";
+    currentNum = "";
     isDisplayCurrentNum = false;
     isDivideWithZero = false;
   })
@@ -65,8 +71,6 @@ function displayUpdate(numberClick) {
 
 //Function on btnOperator click
 function btnOperatorClick() {
-  //newNumber = document.getElementById("inputDisplay").value;
-  //operator(operatorCall);
   if (numA <= 0) {
     numA = Number(document.getElementById("inputDisplay").value);
     document.getElementById("inputDisplay").value = "";
